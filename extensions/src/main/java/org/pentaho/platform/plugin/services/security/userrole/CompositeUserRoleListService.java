@@ -53,6 +53,12 @@ public class CompositeUserRoleListService implements IUserRoleListService {
   public CompositeUserRoleListService( List<IUserRoleListService> delegates ) {
     this.delegates.addAll( delegates );
   }
+  
+  public CompositeUserRoleListService( List<IUserRoleListService> delegates, STRATEGY strategy ) {
+    this.activeStrategy = strategy;
+    this.delegates.addAll( delegates );
+  }
+
 
   public void setStrategy( STRATEGY strategy ) {
     this.activeStrategy = strategy;
